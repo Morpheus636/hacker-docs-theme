@@ -19,6 +19,27 @@ To use the Hacker theme:
     gem "github-pages", group: :jekyll_plugins
     ```
 
+### Creating a Wiki Section
+1. Add a collection to _config.yml
+```yaml
+collections:
+  collection-name: # Replace collection-name with whatever you want to call your wiki section
+    output: true
+    permalink: /:collection/:path
+```
+2. Create a directory for the collection in the root of the repository.
+    - Jekyll expects collection directories to have the same name as the collection (as defined in _config.yml), but with an underscore (`_`) proceeding the name. i.e `_collection-name`.
+3. Create pages within the collection.
+    - Create markdown pages within the collection. Don't forget to include the following front-matter:
+    ```yaml
+    ---
+    title: Page Name # Replace this with the title of the page
+    position: 0 # This determines the order in which pages appear in the wiki sidebar. Lower number = higher on the list. 
+    layout: wiki # Important - This is what tells Jekyll to render the page in the wiki format.
+    ---
+    ```
+    - Note that each collection must have an `index.md` within it. 
+
 ## Customizing
 
 ### Configuration variables
