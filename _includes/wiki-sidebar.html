@@ -1,0 +1,42 @@
+<style>
+/* The side navigation menu */
+.sidebar {
+  margin: 0;
+  padding: 0;
+  width: 180px;
+  float: left;
+  height: 100%;
+  overflow: auto;
+}
+
+.sidebar h3{
+  padding-top: 5px;
+  margin-bottom: 0px;
+}
+
+/* Sidebar links */
+.sidebar a {
+  display: block;
+  color: #eaeaea;
+  padding: 5px;
+  text-decoration: none;
+}
+
+/* On screens that are less than 700px wide, make the sidebar into a topbar */
+@media screen and (max-width: 700px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+  }
+  .sidebar a {float: none;}
+  div.content {margin-left: 0;}
+}
+</style>
+
+<div class="sidebar">
+  <h3>{{ page.collection | capitalize}}</h3>
+  {% assign docs = site[page.collection] | sort: "position" %}
+  {% for doc in docs %}
+    <a href="{{ doc.url | relative_url }}">{{ doc.title }}</a>
+  {% endfor %}
+</div>

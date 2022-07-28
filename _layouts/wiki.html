@@ -1,0 +1,29 @@
+<style>
+  div.content{
+    padding-left: 10px;
+    border-left: thin dashed #b5e853;
+    margin-left: 170px;
+    min-height: 100vh;
+  }
+  @media screen and (max-width: 700px) {
+    div.content{
+    padding-left: 0px;
+    border-left: none;
+    margin-left: 170px;
+    }
+  }
+</style>
+
+{% include head.html %}
+  <body>
+    {% include header.html %}
+    <div class="container">
+      {% include wiki-sidebar.html %}
+      <div class="content">
+        <section id="main_content">
+          {{ content }}
+        </section>
+      </div>
+    </div>
+    {% include footer.html %}
+  </body>
