@@ -1,0 +1,25 @@
+<style>
+  .navlink {
+      text-decoration: none;
+      color: #eaeaea;
+      margin-left: 10px;
+      margin-right: 10px;
+  }
+</style>
+
+<nav>
+  <div>
+    {%- for page in site.pages -%}
+      {%- if page.title -%}
+        {%- unless page.exclude -%}
+          <a class="navlink" href="{{ page.url | relative_url }}">{{ page.title | escape }}</a>
+        {%- endunless -%}
+      {%- endif -%}
+    {%- endfor -%}
+    {%- for collection in site.collections -%}
+      {%- unless collection/label == "posts" -%}
+        <a class="navlink" href="/{{ collection.label }}/index">{{ collection.label | escape | capitalize}}</a>
+      {%- endunless -%}
+      {%- endfor -%}
+  </div>
+</nav>
